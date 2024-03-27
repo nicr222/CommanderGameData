@@ -1,0 +1,32 @@
+<app-not-found
+    [visible]="!commander"
+    notFoundMessage="There isn't a deck with this name!"
+    resetLinkText="Back To Homepage"
+></app-not-found>
+
+<div *ngIf="commander" class="container">
+    <img [src]="commander.imageUrl" [alt]="commander.name" />
+
+    <div class="details">
+        <div class="header">
+            <span class="name">
+                {{commander.name}}
+            </span>
+            <span class="favorite {{commander.favorite?'':'not'}}">
+                &hearts;
+            </span>
+        </div>
+        <div class="color">
+            <span *ngFor="let color of commander.color" class="{{color}}">{{color}}&nbsp;</span>
+        </div>
+        <div class="type">
+            <span *ngFor="let type of commander.type" class="{{type}}">{{type}}</span>
+        </div>
+
+        <div class="description">
+            {{commander.description}}
+        </div>
+
+        <button>Add Game</button>
+    </div>
+</div>

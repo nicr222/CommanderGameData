@@ -1,0 +1,19 @@
+<header>
+    <div class="container">
+        <a routerLink="/" class="logo">Nic's Commander Cards</a>
+        <nav>
+            <ul>
+                <li *ngIf="!isAuth"><a routerLink="/login">Login</a></li>
+                <li *ngIf="isAuth" class="menu-container">
+                    <a routerLink="/dashboard">{{user.name}}</a>
+                    <div class="menu">
+                        <a routerLink="/profile">Profile</a>
+                        <a routerLink="/decks">Decks</a>
+                        <a (click)="logout()">Logout</a>
+                    </div>
+                </li>
+                <li><a routerLink="/messages">Messages<span>3</span></a></li>
+            </ul>
+        </nav>
+    </div>
+</header>

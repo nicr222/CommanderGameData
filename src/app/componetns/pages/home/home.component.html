@@ -1,0 +1,33 @@
+<app-search></app-search>
+<app-not-found
+    [visible]="!commanders || !commanders.length"
+    notFoundMessage="Reset Search"
+    resetLinkText="Go To Homepage"
+></app-not-found>
+<div class="container">
+    <ul>
+        <li *ngFor="let commander of commanders">
+            <a routerLink="/commanders/{{commander.id}}">
+                <img [src]="commander.imageUrl" [alt]="commander.name" />
+                <div class="name">
+                    {{commander.name}}
+                </div>
+                <span class="favorite {{commander.favorite?'':'not'}}">
+                    &hearts;
+                </span>
+                <div class="commander-item-footer">
+                    <div class="color">
+                        <span *ngFor="let color of commander.color" class="{{color}}">{{color}}&nbsp;</span>
+                    </div>
+    
+                    <div class="type">
+                        <span *ngFor="let type of commander.type" class="{{type}}">{{type}}</span>
+                    </div>
+                </div>
+                <div class="description">
+                    {{commander.description}}
+                </div>
+            </a>
+    </ul>
+</div>
+
